@@ -1,5 +1,4 @@
 import 'package:barberapp/app/modules/initial/initial_controller.dart';
-import 'package:barberapp/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:splashscreen/splashscreen.dart';
@@ -21,7 +20,7 @@ class InitialView extends GetView<InitialController>{
                 Colors.red
               ]
             ),
-            navigateAfterSeconds: Routes.WELCOME, // HomeScreen(),
+            navigateAfterSeconds: controller.verifyAuth(), // HomeScreen(),
             loaderColor: Colors.transparent,
           ),
           Container(

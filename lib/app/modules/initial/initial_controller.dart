@@ -1,7 +1,17 @@
+import 'package:barberapp/app/data/model/auth_model.dart';
+import 'package:barberapp/app/routes/app_routes.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class InitialController extends GetxController {
+  final box = GetStorage('barberapp');
 
-
-
+    String verifyAuth(){
+     var auth =  box.read('auth');
+     if(auth != null){
+       return Routes.HOME;
+     }else{
+       return Routes.WELCOME;
+     }
+   }
 }

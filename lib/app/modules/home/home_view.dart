@@ -7,8 +7,23 @@ class HomeView extends GetView<HomeController>{
     @override
     Widget build(BuildContext context){
         return Scaffold(
-            appBar: AppBar(title: Text("title")),
-            body: Container()
+            appBar: AppBar(
+                title: Text("HomeView"),
+                centerTitle: true,
+                actions: [
+                  IconButton(
+                      onPressed: (){
+                        controller.boxClear();
+                      },
+                      icon: const Icon(Icons.logout)
+                  )
+                ],
+            ),
+            body: Container(
+                child: Center(
+                    child: Text('HomeView is working'),
+                ),
+            )
         );
     }
 }

@@ -1,1 +1,1 @@
-const baseUrl = 'http://68d0-2804-14d-90a6-98a5-d023-8828-72f-8850.ngrok.io/barber-flutter-api/api';
+const baseUrl = 'http://b027-2804-14d-90a6-45bc-8dfc-d7b-4702-9216.ngrok.io/barber-flutter-api/api';

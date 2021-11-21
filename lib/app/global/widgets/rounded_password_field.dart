@@ -6,19 +6,33 @@ import 'package:get/get.dart';
 
 class RoundedPasswordField extends StatelessWidget {
   final ValueChanged<String> onChanged;
-  const RoundedPasswordField({
+  final controller;
+  bool showPassword;
+  Function changeShowPassword;
+  RoundedPasswordField({
     Key key,
     this.onChanged,
+    this.controller,
+    this.showPassword = false,
+    this.changeShowPassword,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
 
-    RxBool showPassword = true.obs;
-
-    return Obx(() => TextFieldContainer(
-        child: TextField(
-          obscureText: showPassword.value,
+    return  TextFieldContainer(
+        child: TextFormField(
+          validator: (value){
+            if(value.isEmpty){
+              return 'Campo requerido.';
+            }else if(value.length < 5){
+              return 'Campo requer mínimo 5\n caracteres.';
+            }else{
+              return null;
+            }
+          },
+          controller: controller,
+          obscureText: !showPassword,
           onChanged: onChanged,
           cursorColor: Get.theme.primaryColor,
           decoration: InputDecoration(
@@ -28,16 +42,13 @@ class RoundedPasswordField extends StatelessWidget {
               color: Get.theme.primaryColor,
             ),
             suffixIcon:  IconButton(
-                icon: showPassword.value ? const Icon(Icons.visibility_off_outlined) : const Icon(Icons.visibility),
+                icon: showPassword ?  const Icon(Icons.visibility) : const Icon(Icons.visibility_off_outlined),
                 color: Get.theme.primaryColor,
-                onPressed: (){
-                  showPassword.value = !showPassword.value;
-                },
+                onPressed: changeShowPassword,
               ),
             border: InputBorder.none,
           ),
         ),
-      ),
     );
   }
 }

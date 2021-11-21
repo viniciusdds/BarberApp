@@ -1,3 +1,5 @@
+import 'package:barberapp/app/modules/home/home_binding.dart';
+import 'package:barberapp/app/modules/home/home_view.dart';
 import 'package:barberapp/app/modules/initial/initial_binding.dart';
 import 'package:barberapp/app/modules/initial/initial_view.dart';
 import 'package:barberapp/app/modules/login/login_binding.dart';
@@ -32,6 +34,11 @@ class AppPages {
       name: Routes.SINGUP,
       page: () => SignupView(),
       binding: SignupBinding(),
+    ),
+    GetPage(
+      name: Routes.HOME,
+      page: () => HomeView(),
+      binding: HomeBinding(),
     ),
   ];
 }
