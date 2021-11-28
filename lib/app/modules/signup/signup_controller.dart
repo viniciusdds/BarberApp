@@ -1,5 +1,6 @@
 import 'package:barberapp/app/data/model/user_model.dart';
 import 'package:barberapp/app/data/repository/auth_repository.dart';
+import 'package:barberapp/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,9 +21,13 @@ class SignupController extends GetxController {
       });
       if(user!.username != null){
         // Direcionar para a tela de login
-        Get.offAllNamed('/login');
+        Get.offAllNamed(Routes.LOGIN);
       }
       loading.value = false;
     }
+  }
+
+  void toLogin(){
+    Get.offAndToNamed(Routes.LOGIN);
   }
 }

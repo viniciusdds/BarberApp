@@ -1,4 +1,8 @@
+import 'package:barberapp/app/global/widgets/button_nav_custom.dart';
 import 'package:barberapp/app/modules/home/home_controller.dart';
+import 'package:barberapp/app/modules/home/widgets/page1.dart';
+import 'package:barberapp/app/modules/home/widgets/page2.dart';
+import 'package:barberapp/app/modules/home/widgets/page3.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,22 +12,38 @@ class HomeView extends GetView<HomeController>{
     Widget build(BuildContext context){
         return Scaffold(
             appBar: AppBar(
-                title: Text("HomeView"),
+                title: Text("Barber App"),
                 centerTitle: true,
                 actions: [
                   IconButton(
                       onPressed: (){
-                        controller.boxClear();
+                        controller.logout();
                       },
                       icon: const Icon(Icons.logout)
                   )
                 ],
             ),
-            body: Container(
-                child: Center(
-                    child: Text('HomeView is working'),
-                ),
-            )
+            body: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                    Obx(() => Visibility(
+                          visible: controller.selectedIndex.value == 0,
+                          child: Page1()
+                      ),
+                    ),
+                    Obx(() => Visibility(
+                          visible: controller.selectedIndex.value == 1,
+                          child: Page2()
+                      ),
+                    ),
+                    Obx(() => Visibility(
+                          visible: controller.selectedIndex.value == 2,
+                          child: Page3()
+                      ),
+                    ),
+                ],
+            ),
+            bottomNavigationBar: BottomNavCustom(),
         );
     }
 }

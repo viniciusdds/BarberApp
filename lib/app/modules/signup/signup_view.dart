@@ -84,27 +84,27 @@ class SignupView extends GetView<SignupController>{
                               AlreadyHaveAnAccountCheck(
                                   login: false,
                                   press: () {
-                                      Get.offAndToNamed('/login');
+                                      controller.toLogin();
                                   },
                               ),
-                              OrDivider(),
-                              Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                      SocalIcon(
-                                          iconSrc: "assets/facebook.svg",
-                                          press: () {},
-                                      ),
-                                      SocalIcon(
-                                          iconSrc: "assets/twitter.svg",
-                                          press: () {},
-                                      ),
-                                      SocalIcon(
-                                          iconSrc: "assets/google-plus.svg",
-                                          press: () {},
-                                      ),
-                                  ],
-                              )
+                              //OrDivider(),
+                              // Row(
+                              //     mainAxisAlignment: MainAxisAlignment.center,
+                              //     children: <Widget>[
+                              //         SocalIcon(
+                              //             iconSrc: "assets/facebook.svg",
+                              //             press: () {},
+                              //         ),
+                              //         SocalIcon(
+                              //             iconSrc: "assets/twitter.svg",
+                              //             press: () {},
+                              //         ),
+                              //         SocalIcon(
+                              //             iconSrc: "assets/google-plus.svg",
+                              //             press: () {},
+                              //         ),
+                              //     ],
+                              // )
                           ],
                       ),
                     ),

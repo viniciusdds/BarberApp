@@ -80,7 +80,7 @@ class LoginView extends GetView<LoginController>{
                               AlreadyHaveAnAccountCheck(
                                   //login: false,
                                   press: () {
-                                      Get.offAndToNamed('/signup');
+                                      controller.toRegister();
                                   },
                               ),
                           ],
