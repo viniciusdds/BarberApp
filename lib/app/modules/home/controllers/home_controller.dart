@@ -31,7 +31,7 @@ class HomeController extends GetxController {
   }
 
   void loadData() async {
-    listSchedules.value = await repository.getAll();
+    listSchedules.assignAll(await repository.getAll());
   }
 
   void choiceIndex(int index){

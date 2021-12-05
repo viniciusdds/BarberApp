@@ -1,6 +1,6 @@
 import 'package:barberapp/app/global/widgets/rounded_button.dart';
-import 'package:barberapp/app/modules/welcome/welcome_controller.dart';
-import 'package:barberapp/app/modules/welcome/widgets/background.dart';
+import 'package:barberapp/app/modules/welcome/views/widgets/background.dart';
+import '../controllers/welcome_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';

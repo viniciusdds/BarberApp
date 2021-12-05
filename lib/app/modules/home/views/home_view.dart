@@ -1,8 +1,8 @@
 import 'package:barberapp/app/global/widgets/button_nav_custom.dart';
-import 'package:barberapp/app/modules/home/home_controller.dart';
-import 'package:barberapp/app/modules/home/widgets/page1.dart';
-import 'package:barberapp/app/modules/home/widgets/page2.dart';
-import 'package:barberapp/app/modules/home/widgets/page3.dart';
+import 'package:barberapp/app/modules/home/views/widgets/page1.dart';
+import 'package:barberapp/app/modules/home/views/widgets/page2.dart';
+import 'package:barberapp/app/modules/home/views/widgets/page3.dart';
+import '../controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

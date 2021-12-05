@@ -1,13 +1,13 @@
-import 'package:barberapp/app/modules/home/home_binding.dart';
-import 'package:barberapp/app/modules/home/home_view.dart';
-import 'package:barberapp/app/modules/initial/initial_binding.dart';
-import 'package:barberapp/app/modules/initial/initial_view.dart';
-import 'package:barberapp/app/modules/login/login_binding.dart';
-import 'package:barberapp/app/modules/login/login_view.dart';
-import 'package:barberapp/app/modules/signup/signup_binding.dart';
-import 'package:barberapp/app/modules/signup/signup_view.dart';
-import 'package:barberapp/app/modules/welcome/welcome_binding.dart';
-import 'package:barberapp/app/modules/welcome/welcome_view.dart';
+import '../modules/home/bindings/home_binding.dart';
+import '../modules/home/views/home_view.dart';
+import '../modules/initial/bindings/initial_binding.dart';
+import '../modules/initial/views/initial_view.dart';
+import '../modules/login/bindings/login_binding.dart';
+import '../modules/login/views/login_view.dart';
+import '../modules/signup/bindings/signup_binding.dart';
+import '../modules/signup/views/signup_view.dart';
+import '../modules/welcome/bindings/welcome_binding.dart';
+import '../modules/welcome/views/welcome_view.dart';
 import 'package:barberapp/app/routes/app_routes.dart';
 import 'package:get/get.dart';
 

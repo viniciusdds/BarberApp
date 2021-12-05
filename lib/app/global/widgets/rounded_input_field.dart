@@ -1,5 +1,5 @@
 import 'package:barberapp/app/global/widgets/text_field_container.dart';
-import 'package:barberapp/app/modules/login/login_controller.dart';
+import '../../modules/login/controllers/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

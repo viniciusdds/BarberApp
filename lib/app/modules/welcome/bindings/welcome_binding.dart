@@ -1,4 +1,4 @@
-import 'package:barberapp/app/modules/welcome/welcome_controller.dart';
+import '../controllers/welcome_controller.dart';
 import 'package:get/get.dart';
 
 class WelcomeBinding implements Bindings {

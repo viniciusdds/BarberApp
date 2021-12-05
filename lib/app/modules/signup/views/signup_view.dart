@@ -2,13 +2,13 @@ import 'package:barberapp/app/global/widgets/already_have_an_account_acheck.dart
 import 'package:barberapp/app/global/widgets/rounded_button.dart';
 import 'package:barberapp/app/global/widgets/rounded_input_field.dart';
 import 'package:barberapp/app/global/widgets/rounded_password_field.dart';
-import 'package:barberapp/app/modules/login/login_controller.dart';
-import 'package:barberapp/app/modules/login/widgets/background.dart';
+import 'package:barberapp/app/modules/signup/views/widgets/background.dart';
+import '../controllers/signup_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-class LoginView extends GetView<LoginController>{
+class SignupView extends GetView<SignupController>{
 
     @override
     Widget build(BuildContext context){
@@ -20,41 +20,43 @@ class LoginView extends GetView<LoginController>{
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                              const Text(
-                                  "ENTRAR",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
+                              const Padding(
+                                padding: EdgeInsets.only(top: 25),
+                                child: Text(
+                                    "REGISTRAR",
+                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
                               ),
                               SizedBox(height: Get.height * 0.03),
                               SvgPicture.asset(
-                                  "assets/login.svg",
+                                  "assets/signup.svg",
                                   height: Get.height * 0.35,
                               ),
-                              SizedBox(height: Get.height * 0.03),
                               RoundedInputField(
-                                  hintText: "Usuário",
                                   controller: controller.usernameCtrl,
+                                  hintText: "Usuário",
                                   onChanged: (value) {},
                               ),
                               Obx(() => RoundedPasswordField(
+                                    controller: controller.passwordCtrl,
+                                    onChanged: (value) {},
                                     showPassword: controller.showPassword.value,
                                     changeShowPassword: (){
                                         controller.showPassword.value = !controller.showPassword.value;
                                     },
-                                    onChanged: (value) {},
-                                    controller: controller.passwordCtrl
                                 ),
                               ),
-                              Obx(()=> Visibility(
-                                visible: !controller.loading.value,
-                                child: RoundedButton(
-                                    text: "ENTRAR",
-                                    press: () {
-                                        controller.login();
-                                    },
+                              Obx(() => Visibility(
+                                  visible: !controller.loading.value,
+                                  child: RoundedButton(
+                                      text: "REGISTRAR",
+                                      press: () {
+                                          controller.register();
+                                      },
                                   ),
                                 ),
                               ),
-                              Obx(()=> Visibility(
+                              Obx(() => Visibility(
                                   visible: controller.loading.value,
                                   child: Container(
                                       margin: const EdgeInsets.symmetric(vertical: 10),
@@ -78,11 +80,29 @@ class LoginView extends GetView<LoginController>{
                               ),
                               SizedBox(height: Get.height * 0.03),
                               AlreadyHaveAnAccountCheck(
-                                  //login: false,
+                                  login: false,
                                   press: () {
-                                      controller.toRegister();
+                                      controller.toLogin();
                                   },
                               ),
+                              //OrDivider(),
+                              // Row(
+                              //     mainAxisAlignment: MainAxisAlignment.center,
+                              //     children: <Widget>[
+                              //         SocalIcon(
+                              //             iconSrc: "assets/facebook.svg",
+                              //             press: () {},
+                              //         ),
+                              //         SocalIcon(
+                              //             iconSrc: "assets/twitter.svg",
+                              //             press: () {},
+                              //         ),
+                              //         SocalIcon(
+                              //             iconSrc: "assets/google-plus.svg",
+                              //             press: () {},
+                              //         ),
+                              //     ],
+                              // )
                           ],
                       ),
                     ),
