@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:barberapp/app/data/base_url.dart';
 import 'package:barberapp/app/data/model/auth_model.dart';
+import 'package:barberapp/app/routes/app_routes.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
@@ -18,14 +19,13 @@ class ScheduleApiClient {
         "Authorization": "Bearer "+token
       });
       if(response.statusCode == 200){
-        print(response.body);
         return json.decode(response.body);
       }else{
         Get.defaultDialog(
             title: "Error",
             content: Text("${json.decode(response.body)['error']}")
         );
-        print('erro -get: ${response.body}');
+        //print('erro -get: ${response.body}');
         return {"Erro": response.body};
       }
     }catch(error){
@@ -33,7 +33,9 @@ class ScheduleApiClient {
           title: "Error catch",
           content: Text("${error}")
       );
-      print(error);
+      //print(error);
+      box.erase();
+      Get.offAllNamed(Routes.WELCOME);
       return {"Erro": error};
     }finally{
       httpClient.close();

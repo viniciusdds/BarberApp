@@ -14,14 +14,6 @@ class HomeView extends GetView<HomeController>{
             appBar: AppBar(
                 title: Text("Barber App"),
                 centerTitle: true,
-                actions: [
-                  IconButton(
-                      onPressed: (){
-                        controller.logout();
-                      },
-                      icon: const Icon(Icons.logout)
-                  )
-                ],
             ),
             body: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

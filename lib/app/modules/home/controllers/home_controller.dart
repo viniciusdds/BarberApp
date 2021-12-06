@@ -1,3 +1,4 @@
+import 'package:barberapp/app/data/model/auth_model.dart';
 import 'package:barberapp/app/data/model/schedule_model.dart';
 import 'package:barberapp/app/data/repository/schedule_repository.dart';
 import 'package:barberapp/app/global/widgets/navigation_item.dart';
@@ -23,10 +24,14 @@ class HomeController extends GetxController {
 
   // Page 1
   RxList<Schedule> listSchedules = <Schedule>[].obs;
+  
+  // Page 3
+  Auth? auth;
 
   @override
   void onInit() {
     loadData();
+    auth = Auth.fromJson(box.read('auth'));
     super.onInit();
   }
 

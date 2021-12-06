@@ -21,7 +21,7 @@ class AuthApiClient {
         return {"Erro": response.body};
       }
     }catch(error){
-      print(error);
+      //print(error);
       return {"Erro": error};
     }finally{
       httpClient.close();
@@ -41,7 +41,7 @@ class AuthApiClient {
             title: "Cadastro",
             content: Text("${json.decode(response.body)['message']}")
         );
-        print('erro -get: ${json.decode(response.body)}');
+        //print('erro -get: ${json.decode(response.body)}');
         return {"Erro": response.body};
       }
     }catch(error){
@@ -49,7 +49,7 @@ class AuthApiClient {
           title: "Cadastro",
           content: Text("${error}")
       );
-      print(error);
+      //print(error);
       return {"Erro": error};
     }finally{
       httpClient.close();

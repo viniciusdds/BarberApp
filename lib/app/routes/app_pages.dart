@@ -1,3 +1,12 @@
+import 'package:barberapp/app/modules/payments/bindings/payments_binding.dart';
+import 'package:barberapp/app/modules/payments/views/payments.dart';
+import 'package:barberapp/app/modules/ratings/bindings/ratings_binding.dart';
+import 'package:barberapp/app/modules/ratings/views/ratings_view.dart';
+import 'package:barberapp/app/modules/schedules/bindings/schedules_binding.dart';
+import 'package:barberapp/app/modules/schedules/views/schedules_view.dart';
+import 'package:barberapp/app/modules/settings/bindings/settings_binding.dart';
+import 'package:barberapp/app/modules/settings/views/settings_view.dart';
+
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/initial/bindings/initial_binding.dart';
@@ -39,6 +48,26 @@ class AppPages {
       name: Routes.HOME,
       page: () => HomeView(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.PAYMENTS,
+      page: () => PaymentsView(),
+      binding: PaymentsBinding(),
+    ),
+    GetPage(
+      name: Routes.SCHEDULES,
+      page: () => SchedulesView(),
+      binding: SchedulesBinding(),
+    ),
+    GetPage(
+      name: Routes.RATINGS,
+      page: () => RatingsView(),
+      binding: RatingsBinding(),
+    ),
+    GetPage(
+      name: Routes.SETTINGS,
+      page: () => SettingsView(),
+      binding: SettingsBinding(),
     ),
   ];
 }
