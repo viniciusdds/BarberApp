@@ -13,10 +13,12 @@ class ScheduleRepository {
     List<Schedule> list = <Schedule>[];
     var response = await apiClient.getAll();
 
-    response.forEach((e){
-      print(Schedule.fromJson(e).toJson());
+    if(response != null){
+      response.forEach((e){
+        //print(Schedule.fromJson(e).toJson());
         list.add(Schedule.fromJson(e));
-    });
+      });
+    }
     return list;
   }
 
