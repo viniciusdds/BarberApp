@@ -41,7 +41,7 @@ class Page2 extends StatelessWidget {
                       SizedBox(height: 16.0),
                       FloatingActionButton(
                         onPressed: () {
-                          controller.loadMarkers();
+                          controller.rebuildMarkers();
                         },
                         materialTapTargetSize: MaterialTapTargetSize.padded,
                         child: const Icon(Icons.refresh, size: 36.0),

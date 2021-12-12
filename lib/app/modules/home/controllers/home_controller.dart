@@ -52,15 +52,9 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
-  // @override
-  // void onReady() {
-  //   loadMarkers();
-  //   super.onReady();
-  // }
-
   void loadData() async {
     listSchedules.assignAll(await scheduleRepo.getAll());
-    listCompanies.assignAll(await companyRepo.getAll());
+    rebuildMarkers();
   }
 
   void onMapCreated(GoogleMapController controller){
@@ -96,20 +90,21 @@ class HomeController extends GetxController {
     print('load');
     if (listCompanies.length > 0) {
       listCompanies.forEach((e) {
+
         markers.add(
           Marker(
               markerId: MarkerId(e.id.toString()),
-              position: const LatLng(-30.034399, -51.212597
-                // double.tryParse(e.latitude!),
-                // double.tryParse(e.longitude!),
+              position: LatLng(
+                 double.tryParse(e.latitude!),
+                 double.tryParse(e.longitude!),
               ),
-              /* infoWindow: InfoWindow(
-                title: e.name,
-                snippet: e.phone,
-                onTap: () {
-                  print('Compania clicada ID ${e.id}');
-                },
-              ), */
+              // infoWindow: InfoWindow(
+              //   title: e.name,
+              //   snippet: e.phone,
+              //   onTap: () {
+              //     print('Compania clicada ID ${e.id}');
+              //   },
+              // ),
               icon: BitmapDescriptor.defaultMarker,
               onTap: () {
                 Get.defaultDialog(
@@ -124,7 +119,11 @@ class HomeController extends GetxController {
                         Get.back();
                         //openCompany(e);
                       },
-                      child: Text("Abrir"),
+                      child: const Text("Abrir",
+                        style: TextStyle(
+                          color: Colors.white
+                        ),
+                      ),
                     ),
                     TextButton(
                       style: TextButton.styleFrom(
@@ -142,6 +141,11 @@ class HomeController extends GetxController {
         );
       });
     }
+  }
+
+  void rebuildMarkers() async {
+    listCompanies.assignAll(await companyRepo.getAll());
+    loadMarkers();
   }
 
   void choiceIndex(int index){
