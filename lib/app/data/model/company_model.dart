@@ -1,3 +1,5 @@
+import 'package:barberapp/app/data/model/employee_model.dart';
+
 import 'service_model.dart';
 
 class Company {
@@ -9,7 +11,7 @@ class Company {
   String? phone;
   String? socialLink;
   String? image;
-  List<Service>? services;
+  List<Employee>? employees;
 
   Company({
         this.id,
@@ -20,7 +22,7 @@ class Company {
         this.phone,
         this.socialLink,
         this.image,
-        this.services
+        this.employees
   });
 
   Company.fromJson(Map<String, dynamic> json) {
@@ -32,10 +34,10 @@ class Company {
     phone = json['phone'];
     socialLink = json['social_link'];
     image = json['image'];
-    if (json['services'] != null) {
-      services =  <Service>[];
-      json['services'].forEach((v) {
-        services!.add(new Service.fromJson(v));
+    if (json['employees'] != null) {
+      employees =  <Employee>[];
+      json['employees'].forEach((v) {
+        employees!.add(new Employee.fromJson(v));
       });
     }
   }
@@ -50,8 +52,8 @@ class Company {
     data['phone'] = this.phone;
     data['social_link'] = this.socialLink;
     data['image'] = this.image;
-    if (this.services != null) {
-      data['services'] = this.services!.map((v) => v.toJson()).toList();
+    if (this.employees != null) {
+      data['employees'] = this.employees!.map((v) => v.toJson()).toList();
     }
     return data;
   }

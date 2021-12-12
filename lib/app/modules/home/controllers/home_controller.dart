@@ -34,7 +34,7 @@ class HomeController extends GetxController {
 
   // Page 2
   //-30.034399, -51.212597
-  Rx<LatLng> center = const LatLng(-30.034399, -51.212597).obs;
+  Rx<LatLng> center = const LatLng(-23.467195, -47.469827).obs;
   Completer<GoogleMapController> gmapController = Completer();
   LatLng? lastMapPosition;
   Position? currentLocation;
@@ -67,7 +67,7 @@ class HomeController extends GetxController {
 
   getUserLocation() async {
     currentLocation = await locateUser();
-    //center.value = LatLng(currentLocation!.latitude, currentLocation!.longitude);
+    center.value = LatLng(currentLocation!.latitude, currentLocation!.longitude);
     print('center $center');
   }
 
@@ -117,7 +117,7 @@ class HomeController extends GetxController {
                       ),
                       onPressed: () {
                         Get.back();
-                        //openCompany(e);
+                        openCompany(e);
                       },
                       child: const Text("Abrir",
                         style: TextStyle(
@@ -146,6 +146,10 @@ class HomeController extends GetxController {
   void rebuildMarkers() async {
     listCompanies.assignAll(await companyRepo.getAll());
     loadMarkers();
+  }
+
+  void openCompany(Company company){
+    Get.toNamed(Routes.COMPANY, arguments: company);
   }
 
   void choiceIndex(int index){

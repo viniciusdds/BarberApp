@@ -1,9 +1,13 @@
+import 'package:barberapp/app/modules/company/bindings/company_binding.dart';
+import 'package:barberapp/app/modules/company/views/company_view.dart';
 import 'package:barberapp/app/modules/payments/bindings/payments_binding.dart';
 import 'package:barberapp/app/modules/payments/views/payments.dart';
 import 'package:barberapp/app/modules/ratings/bindings/ratings_binding.dart';
 import 'package:barberapp/app/modules/ratings/views/ratings_view.dart';
 import 'package:barberapp/app/modules/schedules/bindings/schedules_binding.dart';
 import 'package:barberapp/app/modules/schedules/views/schedules_view.dart';
+import 'package:barberapp/app/modules/service/bindings/service_binding.dart';
+import 'package:barberapp/app/modules/service/views/service_view.dart';
 import 'package:barberapp/app/modules/settings/bindings/settings_binding.dart';
 import 'package:barberapp/app/modules/settings/views/settings_view.dart';
 
@@ -68,6 +72,16 @@ class AppPages {
       name: Routes.SETTINGS,
       page: () => SettingsView(),
       binding: SettingsBinding(),
+    ),
+    GetPage(
+      name: Routes.COMPANY,
+      page: () => CompanyView(),
+      binding: CompanyBinding(),
+    ),
+    GetPage(
+      name: Routes.SERVICE,
+      page: () => ServiceView(),
+      binding: ServiceBinding(),
     ),
   ];
 }
