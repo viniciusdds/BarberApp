@@ -1,4 +1,5 @@
 import 'package:barberapp/app/data/model/employee_model.dart';
+import 'package:barberapp/app/data/model/service_model.dart';
 import 'package:barberapp/app/modules/company/controllers/company_controller.dart';
 import 'package:barberapp/app/modules/company/views/widgets/service_card.dart';
 import 'package:flutter/material.dart';
@@ -91,7 +92,7 @@ class CompanyView extends GetView<CompanyController> {
                                                 crossAxisAlignment: CrossAxisAlignment.end,
                                                 children: [
                                                     Text(
-                                                        "Selecione um Funcionário",
+                                                        "Selecione um Serviço",
                                                         style: TextStyle(
                                                             fontSize: 22, fontWeight: FontWeight.w700),
                                                     ),
@@ -102,10 +103,10 @@ class CompanyView extends GetView<CompanyController> {
                                 ),
                                 Expanded(
                                     child: ListView.builder(
-                                        itemCount: controller.company.employees!.length,
+                                        itemCount: controller.company.services!.length,
                                         itemBuilder: (context, index){
-                                            Employee employee = controller.company.employees![index];
-                                            return  EmployeeCard(employee);
+                                            Service service = controller.company.services![index];
+                                            return  ServiceCard(service);
                                         },
                                     ),
                                 ),

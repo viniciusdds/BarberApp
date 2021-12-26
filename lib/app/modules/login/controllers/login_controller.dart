@@ -24,7 +24,6 @@ class LoginController extends GetxController {
            auth =  await repository.login(usernameCtrl.text, passwordCtrl.text);
            if(auth != null){
              box.write('auth', auth!.toJson());
-             box.write('auth', auth!.toJson());
              Get.offAllNamed(Routes.HOME);
            }
            loading.value = false;

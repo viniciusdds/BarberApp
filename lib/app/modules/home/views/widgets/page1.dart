@@ -1,4 +1,5 @@
 import 'package:barberapp/app/data/model/schedule_model.dart';
+import 'package:barberapp/app/global/constants.dart';
 import 'package:barberapp/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -57,21 +58,21 @@ class Page1 extends StatelessWidget {
                             ),)
                           ],
                         ),
-                        SizedBox(height: 5,),
-                        Row(
-                          children: [
-                            Text("Avaliação", style: TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w500
-                            ),),
-                            SizedBox(width: 5,),
-                            Row(
-                              children: (List.generate(5, (i) => i + 1)).map((e){
-                                return Icon(Icons.star);
-                              }).toList(),
-                            )
-                          ],
-                        ),
+                         SizedBox(height: 5,),
+                        // Row(
+                        //   children: [
+                        //     Text("Avaliação", style: TextStyle(
+                        //         color: Colors.grey,
+                        //         fontWeight: FontWeight.w500
+                        //     ),),
+                        //     SizedBox(width: 5,),
+                        //     Row(
+                        //       children: (List.generate(5, (i) => i + 1)).map((e){
+                        //         return Icon(Icons.star);
+                        //       }).toList(),
+                        //     )
+                        //   ],
+                        // ),
                         SizedBox(height: 5,),
                         Container(
                           height: 0.5,
@@ -88,7 +89,7 @@ class Page1 extends StatelessWidget {
                             Expanded(
                               child: Container(),
                             ),
-                            Text("R\$50,00",
+                            Text("R\$ ${formatcurrency.format(schedule.service!.cost)}",
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 16,

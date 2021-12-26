@@ -2,7 +2,7 @@ class User {
   int? id;
   String? fullname;
   String? username;
-  String? image;
+  bool? image;
   bool? activated;
 
   User({this.id, this.fullname, this.username, this.image, this.activated});

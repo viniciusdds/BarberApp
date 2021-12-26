@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:barberapp/app/data/base_url.dart';
+import 'package:barberapp/app/global/constants.dart';
 import 'package:barberapp/app/data/model/auth_model.dart';
 import 'package:barberapp/app/routes/app_routes.dart';
 import 'package:get/get.dart';

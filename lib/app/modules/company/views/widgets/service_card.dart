@@ -1,12 +1,13 @@
-import 'package:barberapp/app/data/model/employee_model.dart';
+import 'package:barberapp/app/data/model/service_model.dart';
+import 'package:barberapp/app/global/constants.dart';
 import 'package:barberapp/app/modules/company/controllers/company_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class EmployeeCard extends StatelessWidget {
+class ServiceCard extends StatelessWidget {
   final controller = Get.find<CompanyController>();
-  final Employee employee;
-  EmployeeCard(this.employee);
+  final Service service;
+  ServiceCard(this.service);
 
   @override
   Widget build(BuildContext context) {
@@ -17,44 +18,45 @@ class EmployeeCard extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 10),
           child: Row(
             children: [
-              Container(
-                height: 100,
-                width: 100,
-                margin: EdgeInsets.only(right: 10),
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(employee.image != null ? employee.image! : "https://i.imgur.com/pBcut2e.jpeg"),
-                  ),
-                ),
-              ),
+              // Container(
+              //   height: 100,
+              //   width: 100,
+              //   margin: EdgeInsets.only(right: 10),
+              //   decoration: BoxDecoration(
+              //     image: DecorationImage(
+              //       image: NetworkImage(service.image != null ? service.image! : "https://i.imgur.com/pBcut2e.jpeg"),
+              //     ),
+              //   ),
+              // ),
               Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "${employee.firstName} ${employee.lastName}",
-                      style:
-                      TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                child: ListTile(
+                  leading: CircleAvatar(
+                    child: Center(
+                      child: Text(
+                        '${service.name!.substring(0, 1).toUpperCase()}',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.white
+                        ),
+                      ),
                     ),
-                    Row(
-                      children: (List<int>.generate(5, (i) => i + 1)).map((e) {
-                        return Icon(
-                          Icons.star,
-                          size: 20,
-                          color: Colors.orange,
-                        );
-                      }).toList(),
-                    ),
-                    Text(
-                      "Lorem ipsum sits dolar amet is for publishing",
-                      style: TextStyle(fontSize: 12),
-                    )
-                  ],
+                    backgroundColor: Colors.green,
+                  ),
+                  title: Text(
+                    "${service.name}",
+                    style:
+                    TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                  ),
+                  subtitle: Text(
+                    "${service.description ?? '...'}",
+                    style: TextStyle(fontSize: 13),
+                  ),
                 ),
               ),
               InkWell(
                 onTap: () {
-                   controller.openService(employee.services!);
+                  controller.createScheduling(service);
                 },
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -65,10 +67,10 @@ class EmployeeCard extends StatelessWidget {
                     color: Colors.green,
                   ),
                   child: Text(
-                    "Ver Serviços",
+                    "R\$ ${formatcurrency.format(service.cost)}",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 12,
+                      fontSize: 13,
                       fontWeight: FontWeight.w700,
                     ),
                   ),

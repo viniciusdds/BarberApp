@@ -7,7 +7,7 @@ class CompanyController extends GetxController {
 
    final Company company = Get.arguments;
 
-   void openService(List<Service> services){
-      Get.toNamed(Routes.SERVICE, arguments: services);
+   void createScheduling(Service service){
+      Get.toNamed(Routes.SCHEDULES);
    }
 }

@@ -87,7 +87,6 @@ class HomeController extends GetxController {
   }
 
   void loadMarkers() {
-    print('load');
     if (listCompanies.length > 0) {
       listCompanies.forEach((e) {
 

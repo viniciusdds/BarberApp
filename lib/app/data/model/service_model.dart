@@ -1,24 +1,39 @@
+import 'package:barberapp/app/data/model/employee_model.dart';
+
 class Service {
   int? id;
   String? name;
+  String? description;
   int? cost;
-  int? employeeId;
+  int? companyId;
+  List<Employee>? employees;
 
-  Service({this.id, this.name, this.cost, this.employeeId});
+  Service({this.id, this.name, this.description, this.cost, this.companyId, this.employees});
 
   Service.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
+    description = json['description'];
     cost = json['cost'];
-    employeeId = json['employee_id'];
+    companyId = json['company_id'];
+    if (json['employees'] != null) {
+      employees = <Employee>[];
+      json['employees'].forEach((v) {
+        employees!.add(Employee.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
     data['name'] = this.name;
+    data['description'] = this.description;
     data['cost'] = this.cost;
-    data['employee_id'] = this.employeeId;
+    data['company_id'] = this.companyId;
+    if (this.employees != null) {
+      data['employees'] = this.employees!.map((v) => v.toJson()).toList();
+    }
     return data;
   }
 }

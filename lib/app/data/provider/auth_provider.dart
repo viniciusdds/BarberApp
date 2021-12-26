@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:barberapp/app/data/base_url.dart';
+import 'package:barberapp/app/global/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
