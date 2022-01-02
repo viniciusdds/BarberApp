@@ -147,8 +147,12 @@ class HomeController extends GetxController {
     loadMarkers();
   }
 
-  void openCompany(Company company){
-    Get.toNamed(Routes.COMPANY, arguments: company);
+  void openCompany(Company company) async {
+    var result = await Get.toNamed(Routes.COMPANY, arguments: company);
+    if(result != null){
+      selectedIndex.value = 0;
+      loadData();
+    }
   }
 
   void choiceIndex(int index){
