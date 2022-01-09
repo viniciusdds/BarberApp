@@ -1,59 +1,38 @@
-import 'dart:convert';
-
 import 'package:barberapp/app/global/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
 
-class AuthApiClient {
-  final http.Client httpClient = http.Client();
+class AuthApiClient extends GetConnect {
 
   Future<Map<String, dynamic>> login(String username, String password) async {
-    try{
-      var response = await http.post("${baseUrl}/login", body: {
+
+      var response = await post(baseUrl+"/login", {
         "username": username,
         "password": password
-      });
-      if(response.statusCode == 200){
-        return json.decode(response.body);
-      }else{
-        print('erro -get: ${response.body}');
-        return {"Erro": response.body};
-      }
-    }catch(error){
-      //print(error);
-      return {"Erro": error};
-    }finally{
-      httpClient.close();
-    }
+        });
+
+     if(response.hasError){
+       return {};
+     }
+     return response.body;
   }
 
   Future<Map<String, dynamic>> register(String username, String password) async {
-    try{
-      var response = await http.post("${baseUrl}/register", body: {
+
+      var response = await post("${baseUrl}/register", {
         "username": username,
         "password": password
       });
       if(response.statusCode == 200){
-        return json.decode(response.body);
+        return response.body;
       }else{
         Get.defaultDialog(
             title: "Cadastro",
-            content: Text("${json.decode(response.body)['message']}")
+            content: Text("${response.body['message']}")
         );
-        //print('erro -get: ${json.decode(response.body)}');
-        return {"Erro": response.body};
+        return {};
       }
-    }catch(error){
-      Get.defaultDialog(
-          title: "Cadastro",
-          content: Text("${error}")
-      );
-      //print(error);
-      return {"Erro": error};
-    }finally{
-      httpClient.close();
-    }
+
   }
 
 }

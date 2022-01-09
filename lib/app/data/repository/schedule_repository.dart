@@ -17,15 +17,15 @@ class ScheduleRepository {
 
     if(response != null){
       response.forEach((e){
-        //print(Schedule.fromJson(e).toJson());
+        print(Schedule.fromJson(e).toJson());
         list.add(Schedule.fromJson(e));
       });
     }
     return list;
   }
 
-  add(String date, String time, Employee? employee, Service service) async{
-    return Schedule.fromJson(await apiClient.add(date, time, employee, service));
+  add(String date, String hour_start, String hour_end, Employee? employee, Service service) async{
+    return Schedule.fromJson(await apiClient.add(date, hour_start, hour_end, employee, service));
   }
 
 }

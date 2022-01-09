@@ -50,7 +50,7 @@ class Page1 extends StatelessWidget {
                           children: [
                             Icon(Icons.timer, color: Colors.black),
                             SizedBox(width: 5),
-                            Text("${DateFormat('dd/MM/yyyy HH:mm').format(DateTime.parse(schedule.schedulingDate!))}",
+                            Text("${DateFormat('dd/MM/yyyy').format(DateTime.parse(schedule.schedulingDate!))} - Previsão: ${schedule.hourStart}h ~ ${schedule.hourEnd}h",
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 13,

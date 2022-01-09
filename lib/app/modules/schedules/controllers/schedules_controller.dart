@@ -1,7 +1,6 @@
 import 'package:barberapp/app/data/model/employee_model.dart';
 import 'package:barberapp/app/data/model/service_model.dart';
 import 'package:barberapp/app/data/repository/schedule_repository.dart';
-import 'package:barberapp/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -15,6 +14,10 @@ class SchedulesController extends GetxController {
   final dateController = TextEditingController();
   final timeController = TextEditingController();
   Employee? employee;
+  RangeValues values = RangeValues(7, 20);
+  RangeLabels labels = RangeLabels('7', '20');
+  RxDouble start = 7.0.obs;
+  RxDouble end = 20.0.obs;
 
   void openCalendar() async {
     datePicked = await showDatePicker(
@@ -50,7 +53,7 @@ class SchedulesController extends GetxController {
     if(formKey.currentState!.validate()) {
 
 
-      var response = await repository.add(dateController.text, timeController.text, employee, service);
+      var response = await repository.add(dateController.text, start.value.toStringAsFixed(0), end.value.toStringAsFixed(0), employee, service);
       print(response);
       if(response != null){
         Get.back(result: "OK");
