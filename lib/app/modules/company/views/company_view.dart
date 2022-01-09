@@ -1,4 +1,3 @@
-import 'package:barberapp/app/data/model/employee_model.dart';
 import 'package:barberapp/app/data/model/service_model.dart';
 import 'package:barberapp/app/modules/company/controllers/company_controller.dart';
 import 'package:barberapp/app/modules/company/views/widgets/service_card.dart';

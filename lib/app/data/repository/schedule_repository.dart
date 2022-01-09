@@ -11,7 +11,7 @@ class ScheduleRepository {
 
   final ScheduleApiClient apiClient = Get.find<ScheduleApiClient>();
 
-  getAll() async {
+  Future<List<Schedule>> getAll() async {
     List<Schedule> list = <Schedule>[];
     var response = await apiClient.getAll();
 
@@ -24,8 +24,8 @@ class ScheduleRepository {
     return list;
   }
 
-  add(String date, String hour_start, String hour_end, Employee? employee, Service service) async{
-    return Schedule.fromJson(await apiClient.add(date, hour_start, hour_end, employee, service));
+  add(String date, String hourStart, String hourEnd, Employee? employee, Service service) async{
+    return Schedule.fromJson(await apiClient.add(date, hourStart, hourEnd, employee, service));
   }
 
 }

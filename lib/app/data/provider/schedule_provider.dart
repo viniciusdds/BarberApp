@@ -35,7 +35,7 @@ class ScheduleApiClient extends GetConnect {
 
   }
 
-  add(String date, String hour_start, String hour_end, Employee? employee, Service service) async {
+  add(String date, String hourStart, String hourEnd, Employee? employee, Service service) async {
 
       Auth auth = Auth.fromJson(box.read('auth'));
       String token = auth.accessToken!;
@@ -45,8 +45,8 @@ class ScheduleApiClient extends GetConnect {
       var response = await post("${baseUrl}/schedules",
           {
             "scheduling_date": "$newDate",
-            "hour_start": "$hour_start",
-            "hour_end": "$hour_end",
+            "hour_start": "$hourStart",
+            "hour_end": "$hourEnd",
             "user_id": "$userId",
             "employee_id": "${employee?.id ?? ''}",
             "service_id": "${service.id}",

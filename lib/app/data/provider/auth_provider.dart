@@ -11,10 +11,17 @@ class AuthApiClient extends GetConnect {
         "password": password
         });
 
-     if(response.hasError){
-       return {};
-     }
-     return response.body;
+      print(response.body);
+      if(response.statusCode == 200){
+         return response.body;
+      }else{
+        Get.defaultDialog(
+            title: "Login",
+            content: Text("Login/Senha não confere.")
+        );
+        return {};
+      }
+
   }
 
   Future<Map<String, dynamic>> register(String username, String password) async {

@@ -21,13 +21,16 @@ class LoginController extends GetxController {
     void login() async {
         if(formKey.currentState!.validate()) {
            loading.value = true;
-           auth =  await repository.login(usernameCtrl.text, passwordCtrl.text);
-           if(auth != null){
-             box.write('auth', auth!.toJson());
-             Get.offAllNamed(Routes.HOME);
-           }
-           loading.value = false;
-
+           await repository.login(usernameCtrl.text, passwordCtrl.text).then((auth){
+             if(auth.user?.id.toString() != null){
+               box.write('auth', auth.toJson());
+               Get.offAllNamed(Routes.HOME);
+               print('passou');
+             }
+             loading.value = false;
+           }).catchError((error){
+             loading.value = false;
+           });
         }
     }
 
