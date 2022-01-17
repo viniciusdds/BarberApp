@@ -14,7 +14,6 @@ class CompanyRepository {
 
     if(response != null){
       response.forEach((e){
-        print(Company.fromJson(e).toJson());
         list.add(Company.fromJson(e));
       });
     }

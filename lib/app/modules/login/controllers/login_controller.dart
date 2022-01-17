@@ -25,7 +25,6 @@ class LoginController extends GetxController {
              if(auth.user?.id.toString() != null){
                box.write('auth', auth.toJson());
                Get.offAllNamed(Routes.HOME);
-               print('passou');
              }
              loading.value = false;
            }).catchError((error){

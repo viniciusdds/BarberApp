@@ -17,7 +17,6 @@ class ScheduleRepository {
 
     if(response != null){
       response.forEach((e){
-        print(Schedule.fromJson(e).toJson());
         list.add(Schedule.fromJson(e));
       });
     }

@@ -1,5 +1,7 @@
 import 'package:barberapp/app/modules/company/bindings/company_binding.dart';
 import 'package:barberapp/app/modules/company/views/company_view.dart';
+import 'package:barberapp/app/modules/employee_schedules/bindings/employee_schedules_binding.dart';
+import 'package:barberapp/app/modules/employee_schedules/views/employee_schedules_view.dart';
 import 'package:barberapp/app/modules/payments/bindings/payments_binding.dart';
 import 'package:barberapp/app/modules/payments/views/payments.dart';
 import 'package:barberapp/app/modules/ratings/bindings/ratings_binding.dart';
@@ -82,6 +84,11 @@ class AppPages {
       name: Routes.SERVICE,
       page: () => ServiceView(),
       binding: ServiceBinding(),
+    ),
+    GetPage(
+      name: Routes.EMPLOYEE_SCHEDULES,
+      page: () => EmployeeSchedulesView(),
+      binding: EmployeeSchedulesBinding(),
     ),
   ];
 }

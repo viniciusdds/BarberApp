@@ -11,7 +11,6 @@ class AuthApiClient extends GetConnect {
         "password": password
         });
 
-      print(response.body);
       if(response.statusCode == 200){
          return response.body;
       }else{

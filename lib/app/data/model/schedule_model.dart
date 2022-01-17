@@ -1,5 +1,6 @@
 import 'package:barberapp/app/data/model/employee_model.dart';
 import 'package:barberapp/app/data/model/service_model.dart';
+import 'package:barberapp/app/data/model/user_model.dart';
 
 class Schedule {
   int? id;
@@ -12,6 +13,7 @@ class Schedule {
   int? serviceId;
   Employee? employee;
   Service? service;
+  User? user;
 
   Schedule({
         this.id,
@@ -23,7 +25,8 @@ class Schedule {
         this.employeeId,
         this.serviceId,
         this.employee,
-        this.service
+        this.service,
+        this.user
   });
 
   Schedule.fromJson(Map<String, dynamic> json) {
@@ -40,6 +43,7 @@ class Schedule {
         : null;
     service =
     json['service'] != null ? new Service.fromJson(json['service']) : null;
+    user = json['user'] != null ? new User.fromJson(json['user']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -57,6 +61,9 @@ class Schedule {
     }
     if (this.service != null) {
       data['service'] = this.service!.toJson();
+    }
+    if (this.user != null) {
+      data['user'] = this.user!.toJson();
     }
     return data;
   }
